@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://c30ka80l0g5be"]
+
+[ext_resource type="Script" uid="uid://cyswiv8mfcnp8" path="res://prototype1/cage.gd" id="1_mgw8i"]
+[ext_resource type="PackedScene" uid="uid://bvcd8ccyqddt7" path="res://prototype1/puppy.tscn" id="1_uf5v8"]
+[ext_resource type="PackedScene" uid="uid://b4jdxp5weipo4" path="res://prototype1/border.tscn" id="2_paq5f"]
+[ext_resource type="PackedScene" uid="uid://vdtvk4w1wnfp" path="res://prototype1/collision_border.tscn" id="3_ubm5s"]
+
+[node name="Cage" type="Node2D"]
+script = ExtResource("1_mgw8i")
+
+[node name="Borders" type="Node2D" parent="."]
+position = Vector2(576, 440)
+
+[node name="Border1" parent="Borders" instance=ExtResource("2_paq5f")]
+position = Vector2(184, 0)
+
+[node name="Border2" parent="Borders" instance=ExtResource("2_paq5f")]
+position = Vector2(-184, 0)
+
+[node name="Border3" parent="Borders" instance=ExtResource("2_paq5f")]
+position = Vector2(0, -184)
+rotation = 1.5707964
+
+[node name="Border4" parent="Borders" instance=ExtResource("2_paq5f")]
+position = Vector2(0, 192)
+rotation = 1.5707964
+
+[node name="CollisionBorder1" parent="Borders" instance=ExtResource("3_ubm5s")]
+position = Vector2(-256, 0)
+
+[node name="CollisionBorder2" parent="Borders" instance=ExtResource("3_ubm5s")]
+position = Vector2(256, 0)
+
+[node name="CollisionBorder3" parent="Borders" instance=ExtResource("3_ubm5s")]
+position = Vector2(8, -248)
+rotation = 1.5707964
+
+[node name="CollisionBorder4" parent="Borders" instance=ExtResource("3_ubm5s")]
+position = Vector2(8, 264)
+rotation = 1.5707964
+
+[node name="Puppy" parent="." instance=ExtResource("1_uf5v8")]
+position = Vector2(576, 512)
+
+[node name="ShootTimer" type="Timer" parent="."]
+wait_time = 0.5
+
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="70.766617mm"
+   height="55mm"
+   viewBox="0 0 70.766617 55"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (f4327f4, 2025-05-13)"
+   sodipodi:docname="sprites.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="true"
+     inkscape:zoom="2.0334082"
+     inkscape:cx="221.54922"
+     inkscape:cy="97.127571"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="mm"
+       originx="-4.2335932"
+       originy="-4.9999999"
+       spacingx="0.99999998"
+       spacingy="1"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Слой 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-4.2335934,-4.9999997)">
+    <path
+       style="fill:#ff0000;stroke-width:0.264583"
+       d="M 15,24.999999 C 15,24.999999 7.0000016,20 5.0000006,15 c -2.000001,-5.0000003 0,-10.0000003 5.0000004,-10.0000003 5,0 4.999999,5 4.999999,5 0,0 10e-7,-5 5.000001,-5 5,0 7.000002,5 5.000001,10.0000003 C 23.000001,20 15,24.999999 15,24.999999 Z"
+       id="path1"
+       sodipodi:nodetypes="czzczzc"
+       inkscape:export-filename="..\icon.png"
+       inkscape:export-xdpi="603.95001"
+       inkscape:export-ydpi="603.95001" />
+    <path
+       id="path2"
+       style="fill:#ffcc00;stroke-width:0.264583"
+       d="M 65.000307,5.0000922 A 10,9.999999 0 0 0 62.500201,5.3230699 10,9.999999 0 0 1 70.000002,15 10,9.999999 0 0 1 62.500201,24.676929 10,9.999999 0 0 0 65.000307,24.999906 10,9.999999 0 0 0 75.000211,15 10,9.999999 0 0 0 65.000307,5.0000922 Z" />
+    <path
+       style="fill:#ff00ff;stroke-width:0.264583"
+       d="M 45.000001,24.999999 35,14.999999 V 4.9999997 h 5 l 5.000001,5 4.999998,-5 h 5 v 9.9999993 z"
+       id="path3" />
+    <rect
+       style="fill:#ffaaaa;stroke-width:0.264583"
+       id="rect3"
+       width="50"
+       height="9.999999"
+       x="10"
+       y="35" />
+    <rect
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="rect4"
+       width="50"
+       height="9.999999"
+       x="10"
+       y="50" />
+  </g>
+</svg>

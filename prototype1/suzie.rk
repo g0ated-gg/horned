@@ -1,0 +1,22 @@
+Main:
+	character s "[orange]Suzie[]"
+	s "Hello!"
+	s "My mistress is still busy..."
+	s "So I'll be watching you for now!"
+	s emotion happy
+	s "[sin]Hope you're ready for some fun?[]"
+	s emotion default
+	s "By the way... What do you like more?"
+	jump Food
+
+menu Food:
+	"Bananas" > Banana
+	"Pineapple Pizza" > PineapplePizza
+
+Banana:
+	s "I love them!"
+	exit
+
+PineapplePizza:
+	s "[jit2]Uh...[] How do you eat that?"
+	exit
