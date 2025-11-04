@@ -22,6 +22,7 @@ addons/rakugo/save_folder="user://saves"
 [autoload]
 
 Rakugo="*res://addons/Rakugo/Rakugo.gd"
+Global="*res://core/global.gd"
 
 [editor]
 
