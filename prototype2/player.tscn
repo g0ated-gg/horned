@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcvw0imtyff08"]
+
+[ext_resource type="Script" uid="uid://du7nb0ctqj0fi" path="res://prototype2/player.gd" id="1_bgvjx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bgvjx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bgvjx"]
+radius = 0.25
+height = 1.0
+
+[node name="Player" type="CharacterBody3D"]
+motion_mode = 1
+script = ExtResource("1_bgvjx")
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.5, 0.65)
+polygon = PackedVector2Array(0, 0, -0.375, 0.745, 0, 1, 0.375, 0.745)
+depth = 0.25
+material = SubResource("StandardMaterial3D_bgvjx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CapsuleShape3D_bgvjx")

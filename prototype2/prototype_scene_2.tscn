@@ -1,0 +1,48 @@
+[gd_scene load_steps=9 format=3 uid="uid://b6oh4a4ybmga7"]
+
+[ext_resource type="PackedScene" uid="uid://dcvw0imtyff08" path="res://prototype2/player.tscn" id="1_c7vvo"]
+[ext_resource type="PackedScene" uid="uid://cw2w8kliknx0a" path="res://prototype2/cameraman.tscn" id="2_udlgo"]
+[ext_resource type="PackedScene" uid="uid://xuvsseruv6m" path="res://prototype2/borders.tscn" id="3_qj78v"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_coa7m"]
+
+[sub_resource type="Sky" id="Sky_c7vvo"]
+sky_material = SubResource("ProceduralSkyMaterial_coa7m")
+
+[sub_resource type="Environment" id="Environment_udlgo"]
+background_mode = 2
+sky = SubResource("Sky_c7vvo")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c7vvo"]
+albedo_color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_c7vvo"]
+
+[node name="PrototypeScene2" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_udlgo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(16, 1, 16)
+material = SubResource("StandardMaterial3D_c7vvo")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_c7vvo")
+
+[node name="Player" parent="." instance=ExtResource("1_c7vvo")]
+
+[node name="Cameraman" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_udlgo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
+player = NodePath("../Player")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Borders" parent="CanvasLayer" node_paths=PackedStringArray("cameraman") instance=ExtResource("3_qj78v")]
+cameraman = NodePath("../../Cameraman")

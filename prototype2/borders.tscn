@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://xuvsseruv6m"]
+
+[ext_resource type="Script" uid="uid://cf50el47ys8rg" path="res://prototype2/borders.gd" id="1_v3rhb"]
+
+[node name="Borders" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_v3rhb")
+
+[node name="Top" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="Control" parent="Top"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Center" type="Control" parent="Top"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="Control" parent="Top"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Center" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Left" type="Control" parent="Center"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Center" type="Control" parent="Center"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="Control" parent="Center"]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Bottom" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Left" type="Control" parent="Bottom"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[node name="Center" type="Control" parent="Bottom"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Right" type="Control" parent="Bottom"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+
+[connection signal="mouse_entered" from="Top/Left" to="." method="_on_border_reached" binds= [Vector2(-1, -1)]]
+[connection signal="mouse_entered" from="Top/Center" to="." method="_on_border_reached" binds= [Vector2(0, -1)]]
+[connection signal="mouse_entered" from="Top/Right" to="." method="_on_border_reached" binds= [Vector2(1, -1)]]
+[connection signal="mouse_entered" from="Center/Left" to="." method="_on_border_reached" binds= [Vector2(-1, 0)]]
+[connection signal="mouse_entered" from="Center/Center" to="." method="_on_border_reached" binds= [Vector2(0, 0)]]
+[connection signal="mouse_entered" from="Center/Right" to="." method="_on_border_reached" binds= [Vector2(1, 0)]]
+[connection signal="mouse_entered" from="Bottom/Left" to="." method="_on_border_reached" binds= [Vector2(-1, 1)]]
+[connection signal="mouse_entered" from="Bottom/Center" to="." method="_on_border_reached" binds= [Vector2(0, 1)]]
+[connection signal="mouse_entered" from="Bottom/Right" to="." method="_on_border_reached" binds= [Vector2(1, 1)]]
