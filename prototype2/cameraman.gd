@@ -15,7 +15,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_pressed("center"):
+	if Input.is_action_just_pressed("center"):
 		Global.centering = !Global.centering
 
 	if direction and not Global.centering:

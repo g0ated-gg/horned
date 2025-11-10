@@ -5,7 +5,8 @@
 [sub_resource type="SphereShape3D" id="SphereShape3D_71w0k"]
 
 [node name="Cameraman" type="CharacterBody3D"]
-collision_mask = 0
+collision_layer = 0
+collision_mask = 8
 script = ExtResource("1_71w0k")
 
 [node name="Camera3D" type="Camera3D" parent="."]
