@@ -11,6 +11,27 @@ class_name Cameraman extends CharacterBody3D
 @onready var camera: Camera3D = $Camera3D
 @onready var floor_raycast: RayCast3D = $FloorRayCast3D
 
+
+@export var camera_sensitivity: float = 0.05
+@export var movement_speed: float = 10.0 # Скорость движения камеры
+
+var dragging: bool = false
+var drag_start_mouse_position: Vector2 = Vector2.ZERO
+var camera_velocity: Vector3 = Vector3.ZERO
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("camera"):
+		if event is InputEventMouse:
+			dragging = true
+			drag_start_mouse_position = event.position
+	elif event.is_action_released("camera"):
+		dragging = false
+
+	if event is InputEventMouseMotion and dragging:
+		var delta = event.relative
+		camera_velocity += -transform.basis.x * delta.x * camera_sensitivity * movement_speed
+		camera_velocity += -transform.basis.z * delta.y * camera_sensitivity * movement_speed
+
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -18,10 +39,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("center"):
 		Global.centering = !Global.centering
 
+	if dragging and not Global.centering:
+		velocity.x = camera_velocity.x
+		velocity.z = camera_velocity.z
+		camera_velocity = Vector3.ZERO
 	if direction and not Global.centering:
 		velocity.x = direction.x * speed.x
 		velocity.z = direction.y * speed.y
-	else:
+	elif not dragging:
 		velocity.x = move_toward(velocity.x, 0, speed.x)
 		velocity.z = move_toward(velocity.z, 0, speed.y)
 
@@ -37,9 +62,14 @@ func _physics_process(delta: float) -> void:
 		global_position.y = floor_raycast.get_collision_point().y
 	else:
 		move_and_slide()
+		if dragging:
+			if floor_raycast.is_colliding():
+				global_position.y = floor_raycast.get_collision_point().y
+			velocity = Vector3.ZERO 
 
 func on_border_reached(border: Vector2) -> void:
-	direction = border
+	if not dragging:
+		direction = border
 
 func _get_centered_position() -> Vector3:
 	return Vector3(
