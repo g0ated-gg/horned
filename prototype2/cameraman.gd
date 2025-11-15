@@ -27,7 +27,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("center"):
-		Global.centering = !Global.centering
+		Settings.centering = !Settings.centering
 
 	var cursor_position = _get_cursor_global_position()
 	if cursor_position and player:
@@ -38,7 +38,7 @@ func _physics_process(delta: float) -> void:
 
 	velocity = Vector3.ZERO
 
-	if Global.centering and player:
+	if Settings.centering and player:
 		global_position = _get_centered_position()
 		if floor_raycast.is_colliding():
 			global_position.y = floor_raycast.get_collision_point().y

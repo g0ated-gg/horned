@@ -18,4 +18,4 @@ func _physics_process(_delta: float) -> void:
 	enemy_buffer_1_size.text = "EnemyBuffer1Size: %d" % Projectiles.enemy_buffer_1.size()
 	enemy_buffer_2_size.text = "EnemyBuffer2Size: %d" % Projectiles.enemy_buffer_2.size()
 	enemy_hp.text = "EnemyHP: %d" % (enemy.hp if enemy else 0)
-	deaths.text = "Deaths: %d" % Global.deaths
+	deaths.text = "Deaths: %d" % Game.deaths

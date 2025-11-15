@@ -24,8 +24,10 @@ addons/rakugo/save_folder="user://saves"
 [autoload]
 
 Rakugo="*res://addons/Rakugo/Rakugo.gd"
-Global="*res://core/global.gd"
-Projectiles="*res://core/projectiles.gd"
+Global="*res://global/global.gd"
+Settings="*res://global/settings.gd"
+Game="*res://global/game.gd"
+Projectiles="*res://global/projectiles.gd"
 
 [docks]
 

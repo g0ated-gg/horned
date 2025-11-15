@@ -8,7 +8,7 @@ var gun : Gun
 signal dead
 
 func die() -> void:
-	Global.deaths += 1
+	Game.deaths += 1
 	dead.emit()
 
 func _ready() -> void:
