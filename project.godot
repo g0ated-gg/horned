@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Horned"
+config/name="Skull Blast"
 run/main_scene="uid://2wh742sf3xmw"
 config/features=PackedStringArray("4.5", "GL Compatibility")
 boot_splash/bg_color=Color(1, 1, 1, 1)
