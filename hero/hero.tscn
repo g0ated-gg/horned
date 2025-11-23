@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://mahlhum6rdqs"]
+
+[ext_resource type="PackedScene" uid="uid://cdtov6djapj3h" path="res://hero/hero_mesh.tscn" id="1_ai0tn"]
+[ext_resource type="Script" uid="uid://c5tx7neg27oy5" path="res://hero/hero.gd" id="1_j5ugi"]
+[ext_resource type="PackedScene" uid="uid://csk1ry0avu4qh" path="res://common/gun.tscn" id="3_m0xho"]
+[ext_resource type="PackedScene" uid="uid://bk4lsna2uqpu8" path="res://hero/hero_projectile.tscn" id="4_cwdmm"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_j5ugi"]
+
+[node name="Hero" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_j5ugi")
+
+[node name="HeroMesh" parent="." instance=ExtResource("1_ai0tn")]
+
+[node name="GunLeft" parent="HeroMesh" instance=ExtResource("3_m0xho")]
+projectile_types = Array[PackedScene]([ExtResource("4_cwdmm")])
+default_offset = Vector3(0.25, 0, 0.5)
+delay = 0.075
+
+[node name="GunRight" parent="HeroMesh" instance=ExtResource("3_m0xho")]
+projectile_types = Array[PackedScene]([ExtResource("4_cwdmm")])
+default_offset = Vector3(-0.25, 0, 0.5)
+delay = 0.075
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_j5ugi")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49999994, 0.86602545, 0, -0.86602545, 0.49999994, 0, 7, 3)
+current = true

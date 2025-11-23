@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://csk1ry0avu4qh"]
-
-[ext_resource type="Script" uid="uid://bbq8e2k2jj70q" path="res://prototype2/gun.gd" id="1_vd6dp"]
-
-[node name="Gun" type="Node3D"]
-script = ExtResource("1_vd6dp")
-
-[node name="DelayTimer" type="Timer" parent="."]
-one_shot = true

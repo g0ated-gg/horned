@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://b1uedykofnc5u"]
+
+[ext_resource type="PackedScene" uid="uid://bvyfhnk4d411a" path="res://common/enemy.tscn" id="1_l5d0c"]
+[ext_resource type="PackedScene" uid="uid://csk1ry0avu4qh" path="res://common/gun.tscn" id="2_n4jcy"]
+[ext_resource type="Script" uid="uid://b0e5l2ottr1cs" path="res://enemy/enemy_core.gd" id="2_wvowp"]
+[ext_resource type="Script" uid="uid://bdywdr8noq7sk" path="res://common/projectile.gd" id="4_jeh1r"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n4jcy"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ilhfw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_whhyp"]
+albedo_color = Color(0.29411766, 0, 0.50980395, 1)
+emission_enabled = true
+emission = Color(0.53268784, 0.0033751207, 0.89544827, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_whhyp"]
+radius = 0.25
+
+[sub_resource type="PackedScene" id="PackedScene_fj2ik"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("EnemyProjectile1", "CharacterBody3D", "collision_layer", "collision_mask", "motion_mode", "script", "metadata/_custom_type_script", "CSGSphere3D", "CSGSphere3D", "transform", "radius", "material", "CollisionShape3D", "CollisionShape3D", "transform", "shape"),
+"node_count": 3,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 5, 2, 0, 3, 1, 4, 2, 5, 3, 6, 4, 0, 1073741824, 0, 8, 7, -1, 3, 9, 5, 10, 6, 11, 7, 0, 1073741825, 0, 13, 12, -1, 2, 14, 8, 15, 9, 0),
+"variants": [0, 3, 1, ExtResource("4_jeh1r"), "uid://bdywdr8noq7sk", Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0), 0.25, SubResource("StandardMaterial3D_whhyp"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0), SubResource("SphereShape3D_whhyp")],
+"version": 3
+}
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ivjqq"]
+albedo_color = Color(1, 0.49803922, 0, 1)
+emission_enabled = true
+emission = Color(1, 0.49803922, 0, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j5uqm"]
+radius = 0.25
+
+[sub_resource type="PackedScene" id="PackedScene_4wm24"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("EnemyProjectile2", "CharacterBody3D", "collision_layer", "collision_mask", "script", "metadata/_custom_type_script", "CSGSphere3D", "CSGSphere3D", "transform", "radius", "material", "CollisionShape3D", "CollisionShape3D", "transform", "shape"),
+"node_count": 3,
+"node_paths": [NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 4, 2, 0, 3, 1, 4, 2, 5, 3, 0, 1073741824, 0, 7, 6, -1, 3, 8, 4, 9, 5, 10, 6, 0, 1073741825, 0, 12, 11, -1, 2, 13, 7, 14, 8, 0),
+"variants": [16, 3, ExtResource("4_jeh1r"), "uid://bdywdr8noq7sk", Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0), 0.25, SubResource("StandardMaterial3D_ivjqq"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0), SubResource("SphereShape3D_j5uqm")],
+"version": 3
+}
+
+[node name="EnemyCore" instance=ExtResource("1_l5d0c")]
+script = ExtResource("2_wvowp")
+hp = 20
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+material = SubResource("StandardMaterial3D_n4jcy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_ilhfw")
+
+[node name="Gun" parent="." index="2" instance=ExtResource("2_n4jcy")]
+projectile_types = Array[PackedScene]([SubResource("PackedScene_fj2ik"), SubResource("PackedScene_4wm24")])
+delay = 0.5

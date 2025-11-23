@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdtov6djapj3h"]
+
+[ext_resource type="PackedScene" uid="uid://ysftmtiitwin" path="res://common/character_mesh.tscn" id="1_njckg"]
+
+[node name="HeroMesh" instance=ExtResource("1_njckg")]

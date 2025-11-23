@@ -1,0 +1,1 @@
+class_name HeroProjectile extends Projectile

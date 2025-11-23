@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bk4lsna2uqpu8"]
+
+[ext_resource type="Script" uid="uid://ps65vi7lckus" path="res://hero/hero_projectile.gd" id="1_agoyh"]
+[ext_resource type="PackedScene" uid="uid://dggdkinnrj2w0" path="res://hero/hero_projectile_mesh.tscn" id="2_slf7f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ctpeg"]
+height = 0.5
+radius = 0.1
+
+[node name="HeroProjectile" type="CharacterBody3D"]
+collision_layer = 0
+collision_mask = 13
+motion_mode = 1
+script = ExtResource("1_agoyh")
+speed = 20.0
+metadata/_custom_type_script = "uid://bdywdr8noq7sk"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 1, 0)
+shape = SubResource("CylinderShape3D_ctpeg")
+
+[node name="HeroProjectileMesh" parent="." instance=ExtResource("2_slf7f")]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvyfhnk4d411a"]
+
+[ext_resource type="Script" uid="uid://dylapxvs0v173" path="res://common/enemy.gd" id="1_hjuov"]
+
+[node name="Enemy" type="CharacterBody3D"]
+collision_layer = 4
+collision_mask = 0
+motion_mode = 1
+script = ExtResource("1_hjuov")
+
+[connection signal="dead" from="." to="." method="_on_dead"]

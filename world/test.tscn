@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://2wh742sf3xmw"]
+
+[ext_resource type="PackedScene" uid="uid://mahlhum6rdqs" path="res://hero/hero.tscn" id="1_2b4yi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w7ex2"]
+
+[sub_resource type="Sky" id="Sky_2b4yi"]
+sky_material = SubResource("ProceduralSkyMaterial_w7ex2")
+
+[sub_resource type="Environment" id="Environment_norx2"]
+background_mode = 2
+sky = SubResource("Sky_2b4yi")
+glow_enabled = true
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_w7ex2"]
+
+[node name="Test" type="Node3D" groups=["World"]]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_norx2")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+size = Vector3(16, 1, 16)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_w7ex2")
+
+[node name="Hero" parent="." groups=["Hero"] instance=ExtResource("1_2b4yi")]
